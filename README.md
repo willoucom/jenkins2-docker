@@ -22,10 +22,10 @@ services:
       - "8080:8080"
       - "5000:5000"
     depends_on:
-      - soccat
+      - socat
     volumes:
       - data:/var/jenkins_home
-  soccat:
+  socat:
     image: willoucom/socat-docker
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
