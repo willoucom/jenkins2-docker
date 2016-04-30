@@ -2,13 +2,9 @@
 
 jenkins2 inside a docker container with support for DooD (Docker out of Docker)
 
+[![Build Status](https://travis-ci.org/willoucom/jenkins2-docker.svg?branch=master)](https://travis-ci.org/willoucom/jenkins2-docker)
+
 Require socat (https://github.com/willoucom/socat-docker)
-
-# Basic usage
-
-```
-docker run -p 8080:8080 -p 5000:5000 -l socat:socat willoucom/jenkins2-docker
-```
 
 # Docker compose v2
 
@@ -25,6 +21,10 @@ services:
       - socat
     volumes:
       - data:/var/jenkins_home
+    environment:
+      DOCKER_HOST: "tcp://socat:2375"
+      LOL: "test"
+
   socat:
     image: willoucom/socat-docker
     volumes:
@@ -32,6 +32,3 @@ services:
 volumes:
   data:
 ```
-
-
-[![Build Status](https://travis-ci.org/willoucom/jenkins2-docker.svg?branch=master)](https://travis-ci.org/willoucom/jenkins2-docker)
