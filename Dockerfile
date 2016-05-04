@@ -11,6 +11,3 @@ RUN \
     && apt-get install -y docker-engine \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-
-# force use socat
-ENV DOCKER_HOST="tcp://socat:2375"
